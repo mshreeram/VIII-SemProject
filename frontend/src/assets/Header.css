@@ -1,0 +1,22 @@
+.header-container {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; 
+    padding: 20px; 
+    border-bottom: 2px solid #dddddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+}
+
+.header-link {
+    font: inherit;
+    text-decoration: none;
+    color: #000;
+}
+
+.header-title {
+    font-size: 2rem; 
+    margin: 0; 
+    margin-left: 40px;
+}
