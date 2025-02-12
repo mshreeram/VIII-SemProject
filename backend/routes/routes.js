@@ -4,8 +4,9 @@ const router = express.Router();
 const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
-const { getStudents, addStudents, loginAdmin, addAdmin, downloadCsv } = require('../controller/controller');
+const { getStudents, addStudents, loginAdmin, addAdmin, downloadCsv, postJob } = require('../controller/controller');
 const { authAdmin } = require('../middleware/authAdmin'); 
+const { registerStudent, loginStudent, getJobs } = require('../controller/studentcontroller');
 
 
 // Ensure the "uploads" folder exists
@@ -49,12 +50,18 @@ const upload = multer({
 // Middleware to parse JSON bodies
 router.use(express.json());
 
-// routes
+// admin routes
 router.post('/addAdmin', addAdmin);
 router.post('/loginAdmin', loginAdmin);
 router.get('/getStudents', authAdmin, getStudents);
 router.post('/addStudents', authAdmin, upload.single('file'), addStudents);
 router.get('/download', downloadCsv);
+router.get('/getJobs', getJobs);
+router.post('/postJob', postJob);
+
+// student routes
+router.post('/registerStudent', registerStudent);
+router.post('/loginStudent', loginStudent);
 
 // Global error handler for multer errors
 router.use((err, req, res, next) => {

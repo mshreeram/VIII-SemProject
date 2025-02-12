@@ -1,5 +1,6 @@
 const StudentModel = require('../models/StudentModel');
 const AdminModel = require('../models/AdminModel');
+const JobModel = require('../models/JobModel');
 const csv = require('csv-parser');
 const XLSX = require('xlsx');
 const fs = require('fs');
@@ -280,5 +281,21 @@ const downloadCsv = async (req, res) => {
     }
 };
 
+const postJob = async (req, res) => {
+    try {
+        const job = req.body;
+        if (!job.companyname || !job.role || !job.isoncampus) {
+            return res.status(400).json({ message: "Please provide proper details of job" })
+        }
+        // const { companyname, role, isoncampus, jd, package, numberofopenings, url, adminmessage } = req.body;
+        // console.log(companyname, role, isoncampus, jd, package, numberofopenings, url, adminmessage);
+        
+        const savedJob = await JobModel.create(job);
+        return res.status(200).json({ message: "success inserted job" })
 
-module.exports = { getStudents, addStudents, loginAdmin, addAdmin, downloadCsv };
+    } catch (error) {
+        return res.status(500);
+    }
+}
+
+module.exports = { getStudents, addStudents, loginAdmin, addAdmin, downloadCsv, postJob };

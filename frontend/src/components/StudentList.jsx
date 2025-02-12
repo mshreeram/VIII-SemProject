@@ -87,6 +87,11 @@ function Students() {
         }
     };
 
+    const logout = () => {
+        localStorage.removeItem('authToken');
+        window.location.reload();
+    };
+
     const handleFileSelection = (event) => {
         const file = event.target.files[0];
         if (file && ['csv', 'xls', 'xlsx'].includes(file.name.split('.').pop().toLowerCase())) {
@@ -262,6 +267,10 @@ function Students() {
                             </div>
                             <button onClick={handleUpload} className="upload-button">Upload</button>
                             <p className="upload-status">{uploadStatus}</p>
+                        </div>
+
+                        <div>
+                            <span onClick={logout}>Logout</span>
                         </div>
                     </div>
 
