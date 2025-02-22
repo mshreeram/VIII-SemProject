@@ -1,0 +1,38 @@
+body  {
+    background-color: #f5f3f0;
+}
+
+.index-container {
+    text-align: center;
+    background: #f9f6f1; /* Muted off-white with a hint of yellow */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 10vh auto;
+    border: 1px solid #eae2d6; /* Subtle border */
+}
+
+/* Link buttons */
+.index-container .header-link {
+    display: block;
+    padding: 12px 18px;
+    margin: 10px auto;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #4a4a4a;
+    background: #f1e8d9;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    border: 1px solid #ddd0b5;
+}
+
+/* Hover effect */
+.index-container .header-link:hover {
+    background: #e9dfc9;
+    border-color: #d6c3a4;
+    transform: scale(1.03);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}

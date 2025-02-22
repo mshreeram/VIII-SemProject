@@ -1,0 +1,156 @@
+/* Jobs Container */
+.jobs-container {
+    max-width: 50%;
+    margin: 5vh auto;
+    padding: 20px;
+    background: #fdfaf3; /* Soft off-white */
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.jobs-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #3e3e3e;
+    margin-bottom: 20px;
+}
+
+/* Logout Button */
+.logout-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    background: #e63946; /* Elegant red */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.logout-btn:hover {
+    background: #d62839;
+    transform: scale(1.05);
+}
+
+/* Job Listings - Each Job Takes Full Column */
+.job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Job Card */
+.job-card {
+    background: white;
+    padding: 25px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    cursor: pointer;
+}
+
+.job-card > h3 {
+    margin-left: 10px;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Job Name */
+.job-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Job Status (On/Off Campus) */
+.job-status {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+    color: white;
+    margin-top: 10px; /* Fixes misalignment */
+    position: relative; /* Remove absolute positioning */
+}
+
+
+/* Job Status (On/Off Campus) */
+/* .job-status {
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+} */
+
+/* On-Campus Indicator */
+.on-campus {
+    background: #2a9d8f; /* Elegant green */
+}
+
+/* Off-Campus Indicator */
+.off-campus {
+    background: #e76f51; /* Elegant burnt orange */
+}
+
+/* Job Details Page */
+.job-details-container {
+    background: white;
+    padding: 40px;
+    width: 55%;
+    margin: 8vh auto;
+    border-radius: 12px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.job-details-container h2 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 10px;
+}
+
+.job-details-container p {
+    font-size: 18px;
+    color: #4a4a4a;
+    margin: 8px 0;
+}
+
+/* Back Button */
+.back-button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    background: linear-gradient(45deg, #ffb347, #ffcc67);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background: linear-gradient(45deg, #ffcc67, #ffb347);
+    transform: scale(1.03);
+}

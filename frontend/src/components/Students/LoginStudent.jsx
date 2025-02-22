@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import React from 'react';
+import '../../assets/Forms.css'
 
-function LoginAdmin({ onLogin }) {
-    const [username, setUsername] = useState('');
+function LoginStudent({ onLogin }) {
+    const [domainmail, setdomainmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const loginAdmin = async () => {
+    const loginStudent = async () => {
         try {
-            const response = await fetch('http://localhost:3000/loginAdmin', {
+            const response = await fetch('http://localhost:3000/loginStudent', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ domainmail, password }),
             });
 
             if (!response.ok) {
@@ -19,21 +20,21 @@ function LoginAdmin({ onLogin }) {
             }
 
             const data = await response.json();
-            localStorage.setItem('authToken', data.token);
-            onLogin(data.token);
+            
+            onLogin(data.token, data.student.name);
         } catch (error) {
             alert('Login failed: ' + error.message);
         }
     };
 
     return (
-        <div>
-            <h2>Admin Login</h2>
+        <div className='form-container'>
+            <h2>Student Login</h2>
             <input
                 type="text"
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                placeholder="domainmail"
+                value={domainmail}
+                onChange={(e) => setdomainmail(e.target.value)}
             />
             <br />
             <input
@@ -43,9 +44,9 @@ function LoginAdmin({ onLogin }) {
                 onChange={(e) => setPassword(e.target.value)}
             />
             <br />
-            <button onClick={loginAdmin}>Login</button>
+            <button onClick={loginStudent}>Login</button>
         </div>
     );
 }
 
-export default LoginAdmin;
+export default LoginStudent;

@@ -3,7 +3,9 @@ const StudentModel = require('../models/StudentModel');
 const jwt = require('jsonwebtoken');
 
 const registerStudent = async (req, res) => {
-    const { domainmail, password, skills } = req.body;
+    const { domainmail, password, email, mobile, skills } = req.body;
+    console.log(req.body);
+    
     try {
         const student = await StudentModel.findOne({ domainmail: domainmail });
         console.log(domainmail);
@@ -16,7 +18,15 @@ const registerStudent = async (req, res) => {
         }
 
         student.password = password;
-        student.skills = skills.split(",")
+        
+        if (skills.length !== 0) 
+            student.skills = skills;
+
+        if (email.length !== 0)
+            student.email = email;
+
+        if (mobile.length !== 0)
+            student.mobile = mobile;
 
         student.save();
 
@@ -50,7 +60,7 @@ const loginStudent = async (req, res) => {
         // Generate JWT token
         const token = jwt.sign({ id: student._id }, process.env.JWT_SECRET);
 
-        res.json({ message: 'Login successful', token });
+        res.json({ message: 'Login successful', token, student });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

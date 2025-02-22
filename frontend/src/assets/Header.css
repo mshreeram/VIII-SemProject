@@ -1,6 +1,6 @@
 .header-container {
     font-family: 'Arial', sans-serif;
-    background-color: #ffffff; 
+    background-color: rgb(254, 254, 248); 
     padding: 20px; 
     border-bottom: 2px solid #dddddd;
     display: flex;

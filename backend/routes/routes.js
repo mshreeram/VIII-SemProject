@@ -57,7 +57,7 @@ router.get('/getStudents', authAdmin, getStudents);
 router.post('/addStudents', authAdmin, upload.single('file'), addStudents);
 router.get('/download', downloadCsv);
 router.get('/getJobs', getJobs);
-router.post('/postJob', postJob);
+router.post('/postJob', authAdmin, postJob);
 
 // student routes
 router.post('/registerStudent', registerStudent);

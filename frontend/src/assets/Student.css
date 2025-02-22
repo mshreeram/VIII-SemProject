@@ -1,0 +1,323 @@
+/* General container styling */
+.students-container {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 100%;
+    max-width: 300px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Section Title */
+.sidebar h4 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #0056b3;
+}
+
+/* Filter Section */
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Modern Checkbox Styling */
+.sidebar label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    padding: 14px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: background 0.3s ease-in-out;
+    gap: 14px;
+}
+
+.sidebar label:hover {
+    background: #e9ecef;
+}
+
+/* Custom Checkbox */
+.sidebar label input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #007bff;
+    border-radius: 6px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.sidebar label input[type="checkbox"]:checked {
+    background: #007bff;
+    border-color: #0056b3;
+}
+
+.filters label input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    accent-color: #007bff;
+    border-radius: 4px;
+}
+
+.sidebar label input[type="checkbox"]::before {
+    content: "✔";
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.sidebar label input[type="checkbox"]:checked::before {
+    opacity: 1;
+}
+
+/* Buttons */
+.download-button, .upload-button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 17px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.download-button:hover, .upload-button:hover {
+    background: linear-gradient(135deg, #0056b3, #003f80);
+}
+
+.download-button.disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Upload Area */
+.upload-area {
+    margin: 10px 0px;
+    border: 2px dashed #007bff;
+    padding: 24px;
+    text-align: center;
+    border-radius: 14px;
+    cursor: pointer;
+    color: #007bff;
+    transition: all 0.3s;
+    font-size: 16px;
+}
+
+.upload-area:hover {
+    background: rgba(0, 123, 255, 0.1);
+}
+
+/* Upload Status */
+.upload-status {
+    font-size: 16px;
+    color: #444;
+    margin-top: 10px;
+}
+
+/* Logout Button */
+.logout-button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 17px;
+    background: linear-gradient(135deg, #ff4d4d, #b30000);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.logout-button:hover {
+    background: linear-gradient(135deg, #b30000, #800000);
+}
+
+/* Spacing Between Sections */
+.sidebar section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* Student Table Section */
+.student-table-container {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 300px;
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table-header, .student-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-header {
+    font-weight: bold;
+    background: #007bff;
+    color: white;
+}
+
+.student-row:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.sortable {
+    cursor: pointer;
+}
+
+.sort-icon {
+    margin-left: 5px;
+}
+
+
+/* Pagination styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Pagination container */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+/* Pagination buttons */
+.pagination button {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Active page button */
+.pagination .page-button.active {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    border-color: #007bff;
+    cursor: default;
+}
+
+/* Disabled buttons */
+.pagination button:disabled {
+    background-color: #f5f5f5;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Dots styling */
+.pagination .dots {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 14px;
+    cursor: default;
+    pointer-events: none;
+}
+
+.post-job {
+    display: block;
+    padding: 6px 9px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #4a4a4a;
+    background: #f1e8d9;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    border: 1px solid #ddd0b5;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .students-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .sidebar {
+        position: sticky;
+        top: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .student-table-container {
+        width: calc(100% - 340px);
+        margin-left: 20px;
+    }
+}

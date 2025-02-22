@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LoginAdmin from './LoginAdmin';
-import '../assets/Students.css';
+import '../../assets/Student.css';
 
 function Students() {
     const [students, setStudents] = useState([]);
@@ -222,7 +223,7 @@ function Students() {
                 <LoginAdmin onLogin={handleLogin} />
             ) : (
                 <>
-                    <div className="left">
+                    <div className="sidebar">
                         <div className="filters">
                             <h4>Filter by Branch:</h4>
                             {branches.map((branch) => (
@@ -270,11 +271,12 @@ function Students() {
                         </div>
 
                         <div>
-                            <span onClick={logout}>Logout</span>
+                            <span className='logout-button' onClick={logout}>Logout</span>
                         </div>
                     </div>
 
                     <div className="student-table-container">
+
 
                         {/* Search Bar placed below the Student List heading */}
                         <div className="search-bar">
@@ -285,6 +287,7 @@ function Students() {
                                 placeholder="Search by Regd No or Name"
                                 className="search-input"
                             />
+                            <Link to="/postJob" className='post-job'>Post a Job</Link>
                         </div>
 
                         <div className="student-table">

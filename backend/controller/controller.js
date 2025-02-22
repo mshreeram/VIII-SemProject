@@ -284,11 +284,11 @@ const downloadCsv = async (req, res) => {
 const postJob = async (req, res) => {
     try {
         const job = req.body;
-        if (!job.companyname || !job.role || !job.isoncampus) {
+        if (!job.companyname || !job.role) {
             return res.status(400).json({ message: "Please provide proper details of job" })
         }
-        // const { companyname, role, isoncampus, jd, package, numberofopenings, url, adminmessage } = req.body;
-        // console.log(companyname, role, isoncampus, jd, package, numberofopenings, url, adminmessage);
+        const { companyname, role, isoncampus, jd, package, numberofopenings, url, adminmessage } = req.body;
+        console.log(companyname, role, isoncampus, jd, package, numberofopenings, url, adminmessage);
         
         const savedJob = await JobModel.create(job);
         return res.status(200).json({ message: "success inserted job" })

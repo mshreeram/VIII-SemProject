@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import React from 'react';
+import '../../assets/Forms.css';
 
-function LoginStudent({ onLogin }) {
-    const [domainmail, setdomainmail] = useState('');
+function LoginAdmin({ onLogin }) {
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const loginStudent = async () => {
+    const loginAdmin = async () => {
         try {
-            const response = await fetch('http://localhost:3000/loginStudent', {
+            const response = await fetch('http://localhost:3000/loginAdmin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ domainmail, password }),
+                body: JSON.stringify({ username, password }),
             });
 
             if (!response.ok) {
@@ -19,7 +20,7 @@ function LoginStudent({ onLogin }) {
             }
 
             const data = await response.json();
-            localStorage.setItem('studentToken', data.token);
+            localStorage.setItem('authToken', data.token);
             onLogin(data.token);
         } catch (error) {
             alert('Login failed: ' + error.message);
@@ -27,13 +28,13 @@ function LoginStudent({ onLogin }) {
     };
 
     return (
-        <div>
-            <h2>Student Login</h2>
+        <div className='form-container admin-form'>
+            <h2>Admin Login</h2>
             <input
                 type="text"
-                placeholder="domainmail"
-                value={domainmail}
-                onChange={(e) => setdomainmail(e.target.value)}
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
             />
             <br />
             <input
@@ -43,9 +44,9 @@ function LoginStudent({ onLogin }) {
                 onChange={(e) => setPassword(e.target.value)}
             />
             <br />
-            <button onClick={loginStudent}>Login</button>
+            <button onClick={loginAdmin}>Login</button>
         </div>
     );
 }
 
-export default LoginStudent;
+export default LoginAdmin;

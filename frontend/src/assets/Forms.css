@@ -1,0 +1,111 @@
+/* Container for forms */
+.form-container {
+    background: #f9f6f1; /* Muted off-white with a subtle yellow tint */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin: 10vh auto;
+    text-align: center;
+    border: 1px solid #eae2d6; /* Subtle border */
+}
+
+/* Form Title */
+.form-container h2 {
+    color: #4a4a4a;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Input Fields */
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd0b5;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #f1e8d9;
+    color: #4a4a4a;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+.form-container input[type="text"]:focus,
+.form-container input[type="password"]:focus {
+    border-color: #d6c3a4;
+    background: #e9dfc9;
+}
+
+/* Skills Selection */
+.skills-container {
+    text-align: left;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 6px;
+    background: rgba(255, 236, 210, 0.5);
+}
+
+/* Skill Label */
+.skills-container label {
+    font-weight: 500;
+    color: #4a4a4a;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.skills-container div {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    margin: 5px 0;
+}
+
+/* Fix Checkbox Alignment */
+.skills-container input[type="checkbox"] {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Button Styling */
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, #ff8c42, #ffb347);
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Button Hover Effect */
+.form-container button:hover {
+    background: linear-gradient(135deg, #ffb347, #ff8c42);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth Button Click Effect */
+.form-container button:active {
+    transform: scale(0.98);
+}
+
+/* Admin Form Height Fix */
+.admin-form {
+    height: 330px;
+}

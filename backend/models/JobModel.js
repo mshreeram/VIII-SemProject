@@ -4,7 +4,6 @@ const jobSchema = new mongoose.Schema({
     companyname: {
         type: String,
         required: true,
-        unique: true,
     },
     role: {
         type: String,
