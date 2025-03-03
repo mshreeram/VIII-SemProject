@@ -6,6 +6,7 @@ import JobList from './components/Students/JobList';
 import RegisterStudent from './components/Students/RegisterStudent';
 import JobDetails from './components/Students/JobDetails';
 import PostJob from './components/Admin/PostJob';
+import StudentDetails from './components/Admin/StudentDetails';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
                 <Route path="/" element={<Index />} />
                 <Route path="/admindashboard" element={<StudentList />} />
                 <Route path="/studentdashboard" element={<JobList />} />
+                <Route path="/student/:regdno" element={<StudentDetails />} />
                 <Route path="/registerstudent" element={<RegisterStudent />} />
                 <Route path="/job/:jobid" element={<JobDetails />} />
                 <Route path="/postJob" element={<PostJob />} />

@@ -1,5 +1,6 @@
 const JobModel = require('../models/JobModel');
 const StudentModel = require('../models/StudentModel');
+const PlacementModel = require('../models/PlacementModel');
 const jwt = require('jsonwebtoken');
 
 const registerStudent = async (req, res) => {
@@ -75,4 +76,22 @@ const getJobs = async (req, res) => {
     }
 }
 
-module.exports = { registerStudent, loginStudent, getJobs };
+const addPlacementRecords = async (req, res) => {
+    try {
+        let  { placements } = req.body;
+        placements = await PlacementModel.insertMany(placements);
+        
+        let student = await StudentModel.findById(placements[0].student);
+        
+        for(let i = 0; i < placements.length; i++) {
+            student.placements.push(placements[i]._id);
+        }
+        student.save();
+        return res.status(200).json({ message: "Success" });
+        
+    } catch (error) {
+        return res.status(500);
+    }
+}
+
+module.exports = { registerStudent, loginStudent, getJobs, addPlacementRecords };

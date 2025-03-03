@@ -6,7 +6,7 @@ const fs = require('fs');
 const multer = require('multer');
 const { getStudents, addStudents, loginAdmin, addAdmin, downloadCsv, postJob } = require('../controller/controller');
 const { authAdmin } = require('../middleware/authAdmin'); 
-const { registerStudent, loginStudent, getJobs } = require('../controller/studentcontroller');
+const { registerStudent, loginStudent, getJobs, addPlacementRecords } = require('../controller/studentcontroller');
 
 
 // Ensure the "uploads" folder exists
@@ -62,6 +62,7 @@ router.post('/postJob', authAdmin, postJob);
 // student routes
 router.post('/registerStudent', registerStudent);
 router.post('/loginStudent', loginStudent);
+router.post('/addPlacementRecords', addPlacementRecords);
 
 // Global error handler for multer errors
 router.use((err, req, res, next) => {

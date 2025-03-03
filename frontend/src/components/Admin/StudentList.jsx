@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoginAdmin from './LoginAdmin';
 import '../../assets/Student.css';
 
 function Students() {
+    const navigate = useNavigate();
     const [students, setStudents] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
@@ -18,6 +19,12 @@ function Students() {
 
     const pageSize = 15;
     const branches = ['cse', 'ece', 'eee', 'mech', 'civil', 'it', 'chem'];
+
+    const handleStudentClick = (student) => {
+        console.log("hi");
+        
+        navigate(`/student/${student.regdno}`, { state: { student } });
+    };
 
     const handleSort = (field) => {
         setSortConfig((prev) => {
@@ -311,6 +318,7 @@ function Students() {
                             </div>
                             {sortedStudents.map((student, index) => (
                                 <div
+                                    onClick={() => handleStudentClick(student)}
                                     className={`student-row ${
                                         index === 0 ? 'first-row' : index === students.length - 1 ? 'last-row' : ''
                                     }`}

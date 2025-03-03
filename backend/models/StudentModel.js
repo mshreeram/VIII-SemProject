@@ -49,7 +49,11 @@ const studentSchema = new mongoose.Schema({
     skills: {
         type: [String],
         default: []
-    }
+    },
+    placements: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Placement'
+    }]
 });
 
 module.exports = mongoose.model('Student', studentSchema);
