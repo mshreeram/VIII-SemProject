@@ -21,7 +21,7 @@ function LoginStudent({ onLogin }) {
 
             const data = await response.json();
             
-            onLogin(data.token, data.student.name);
+            onLogin(data.token, data.student.name, data.student._id);
         } catch (error) {
             alert('Login failed: ' + error.message);
         }

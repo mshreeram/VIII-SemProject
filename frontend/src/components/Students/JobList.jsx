@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoginStudent from './LoginStudent';
 import "../../assets/Jobs.css"
 
@@ -11,10 +11,12 @@ function Jobs() {
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('studentToken'));
     const navigate = useNavigate();
     const [studentName, setStudentName] = useState(localStorage.getItem('studentName'));
+    const [studentID, setStudentID] = useState(localStorage.getItem('studentID'));
 
-    const handleLogin = (token, studentName) => {
+    const handleLogin = (token, studentName, studentID) => {
         localStorage.setItem('studentToken', token);
         localStorage.setItem('studentName', studentName);
+        localStorage.setItem('studentID', studentID);
         setIsAuthenticated(true);
         window.location.reload();
     };
@@ -37,6 +39,7 @@ function Jobs() {
     const logout = () => {
         localStorage.removeItem('studentToken');
         localStorage.removeItem('studentName');
+        localStorage.removeItem('studentID');
         window.location.reload();
     };
 
@@ -44,7 +47,7 @@ function Jobs() {
         if (isAuthenticated) {
             fetchJobs();
         }
-    }, [isAuthenticated, studentName]);
+    }, [isAuthenticated, studentName, studentID]);
 
     const handleJobClick = (job) => {
         navigate(`/job/${job._id}`, { state: { job } });
@@ -56,7 +59,6 @@ function Jobs() {
                 <LoginStudent onLogin={handleLogin} />
             ) : (
                 <>
-                    <button className="logout-btn" onClick={logout}>Logout</button>
                     <h2 className="jobs-title">Hello, {studentName}!!</h2>
                     <h2 className="jobs-title">Available Jobs</h2>
                     <div className="job-list">
@@ -69,6 +71,8 @@ function Jobs() {
                             </div>
                         ))}
                     </div>
+                    <Link to="/addPlacementRecords" className='post-job'>Post Placement Records</Link>
+                    <button className="logout-btn" onClick={logout}>Logout</button>
                 </>
             )}
         </div>

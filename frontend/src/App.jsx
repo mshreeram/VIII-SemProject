@@ -7,6 +7,7 @@ import RegisterStudent from './components/Students/RegisterStudent';
 import JobDetails from './components/Students/JobDetails';
 import PostJob from './components/Admin/PostJob';
 import StudentDetails from './components/Admin/StudentDetails';
+import PlacementForm from './components/Students/PlacementForm';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/registerstudent" element={<RegisterStudent />} />
                 <Route path="/job/:jobid" element={<JobDetails />} />
                 <Route path="/postJob" element={<PostJob />} />
+                <Route path="/addPlacementRecords" element={<PlacementForm/>}/>
             </Routes>
         </Router>
     );

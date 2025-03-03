@@ -79,6 +79,8 @@ const getJobs = async (req, res) => {
 const addPlacementRecords = async (req, res) => {
     try {
         let  { placements } = req.body;
+        console.log(placements);
+        
         placements = await PlacementModel.insertMany(placements);
         
         let student = await StudentModel.findById(placements[0].student);
